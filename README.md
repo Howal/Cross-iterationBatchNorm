@@ -1,8 +1,25 @@
 # Cross-Iteration Batch Normalization
-This repository contains a PyTorch implementation of the CBN layer, as well as some training scripts to reproduce the COCO object detection and instance segmentation results reported in our paper.
 
+By [Zhuliang Yao](https://scholar.google.com/citations?user=J3kgC1QAAAAJ&hl=en), [Yue Cao](http://yue-cao.me), [Shuxin Zheng](https://scholar.google.co.jp/citations?user=rPhGUw0AAAAJ&hl=en), [Gao Huang](http://www.gaohuang.net/), [Stephen Lin](https://scholar.google.com/citations?user=c3PYmxUAAAAJ&hl=en).
 
-## Results with this code
+This repo is an official implementation of ["Cross-Iteration Batch Normalization"](https://arxiv.org/abs/2002.05712) on COCO object detection based on open-mmlab's mmdetection. This repository contains a PyTorch implementation of the CBN layer, as well as some training scripts to reproduce the COCO object detection and instance segmentation results reported in our paper.
+
+## Introduction
+
+**CBN** is initially described in [arxiv](https://arxiv.org/abs/2002.05712). A well-known issue of Batch Normalization is its significantly reduced effectiveness in the case of small mini-batch sizes. Here we present Cross-Iteration Batch Normalization (CBN), in which examples from multiple recent iterations are jointly utilized to enhance estimation quality. A challenge is that the network activations from different iterations are not comparable to each other due to changes in network weights. We thus compensate for the network weight changes via a proposed technique based on Taylor polynomials, so that the statistics can be accurately estimated. On object detection and image classification with small mini-batch sizes, CBN is found to outperform the original batch normalization and a direct calculation of statistics over previous iterations without the proposed compensation technique.
+
+## Citing CBN
+
+```
+@article{zhu2020CBN,
+  title={Cross-Iteration Batch Normalization},
+  author={Yao, Zhuliang and Cao, Yue and Zheng, Shuxin and Huang, Gao and Lin, Stephen},
+  journal={arXiv preprint arXiv:2002.05712},
+  year={2020}
+}
+```
+
+## Main Results
 
 | Backbone      | Method       | Norm | AP<sup>b</sup> | AP<sup>b</sup><sub>0.50</sub> | AP<sup>b</sup><sub>0.75</sub> | AP<sup>m</sup> | AP<sup>m</sup><sub>0.50</sub> | AP<sup>m</sup><sub>0.75</sub> | Download |
 |:-------------:|:------------:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
