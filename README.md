@@ -51,7 +51,7 @@ python tools/test.py {configs_file} {downloaded model} --gpus 4 --out {tmp.pkl} 
 ```
 
 
-### Train Mask R-CNNN
+### Train Mask R-CNN
 One node with 4GPUs:
 ```bash
 # SyncBN
