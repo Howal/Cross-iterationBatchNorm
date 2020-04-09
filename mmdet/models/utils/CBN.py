@@ -83,7 +83,7 @@ class CBatchNorm2d(nn.Module):
             self.iter_count += 1
             self._update_buffer_num()
 
-        if self.buffer_num > 0 and self.training and input.requires_grad and len(self.pre_mu)==self.buffer_num:  # some layers are frozen!
+        if self.buffer_num > 0 and self.training and input.requires_grad:  # some layers are frozen!
             # cal current batch mu and sigma
             cur_mu = y.mean(dim=1)
             cur_meanx2 = torch.pow(y, 2).mean(dim=1)
